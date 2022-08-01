@@ -17,7 +17,118 @@
 <body>
 <div id="map" style="width: 100vw; height: 100vh;"></div>
 <script type="text/javascript">
-    for(var addresses=[{name:"Trần Thị Phú",address:"KĐT OCT2 Viglacera Xuân Phương, NTL,Hà nội",latlng:[21.026833428292054,105.7406472267112]},{name:"Trần Văn Khuyên ",address:"La Phù Hoài Đức Hà Nội",latlng:[20.978550852598097,105.73201230849014]},{name:"Phạm Thị Ánh Tuyết",address:"Khu Đô Thị Linh Đàm Hoàng Liệt Hoàng Mai",latlng:[20.965405251147594,105.83419548568543]},{name:"Phạm Xuân Thủy",address:"51 Quan Nhân - Nhân Chính - Thanh Xuân- Hà Nội",latlng:[21.006715733359187,105.81263269787534]},{name:"Nguyễn Minh Phượng",address:"Thôn Văn, Thanh Liệt, Thanh Trì, Hà Nội",latlng:[20.957000787569243,105.8153150976019]},{name:"Nguyễn Minh Tuấn",address:"Lộc Vượng, TP Nam Định",latlng:[20.444102934891312,106.16451495334266]},{name:"Nguyễn Thị Bích Hạnh",address:"Nhật Tảo, Đông Ngạc, Bắc Từ Liêm, Hà Nội",latlng:[21.087940416928134,105.78887486904048]},{name:"Phạm Phương Loan",address:"số 38/100 Hoàng Như Tiếp, Bồ Đề, Long Biên, Hà Nội",latlng:[21.04201755917944,105.8763929555469]},{name:"Đỗ Thu Hiền",address:"Ngõ 599 Phạm Văn Đồng, Bắc Từ Liêm, HN",latlng:[21.05536114855431,105.78340944020451]},{name:"Vũ Thị Thu Hà",address:"Ngoại Giao Đoàn, Xuân Tảo, Bắc Từ Liêm, HN",latlng:[21.066563082993873,105.79831422782571]},{name:"Nguyễn Xuân Trường",address:"Tổ Dân Phố Vĩnh Tiến, Vĩnh Trụ",latlng:[20.560336889306445,106.0346161160321]},{name:"Nguyễn Thành Sơn",address:"Phường Hoàng Văn Thụ, Hoàng Mai, Hà Nội",latlng:[20.984771423691665,105.86117867920252]},{name:"Nguyễn Thị Mỹ Lệ",address:"Nghĩa An, Nam Trực,Nam Định",latlng:[20.379063102225498,106.16877914086446]},{name:"Lê Thị Huế",address:"Chân Lý, Lý Nhân, Hà Nam",latlng:[20.599429741514758,106.10647359378385]},{name:"Dương Minh Phong",address:"Thôn 1 - Mai Xá - Thị Trấn Vĩnh Trụ - Lý Nhân - Hà Nam",latlng:[20.563002502011074,106.04046799240194]},{name:"Trần Thúy Hà",address:"Vĩnh Trụ Lý nhân hà nam",latlng:[20.55993102785563,106.03229278622952]},{name:"Đỗ Thị Hồng Lĩnh",address:"\tBùi Bằng Đoàn, Lộc Hạ, tp.Nam Định, tỉnh Nam Định",latlng:[20.448663786320207,106.18570522670558]},{name:"Trần Thị Hồng Nhung",address:"Chính Lý - Lý Nhân - Hà Nam",latlng:[20.6053578217726,106.01491297019749]},{name:"Nguyễn Văn Cường",address:"nhân khang- lý nhân hà nam",latlng:[20.54950332464198,106.04488846333687]},{name:"Lê Văn Trọng",address:"KĐT RESCO, Cổ Nhuế 2, Bắc Từ Liêm, Hà Nội",latlng:[21.066785291756347,105.78249867828819]},{name:"Vũ Hoàng Đức",address:"KTĐC Petrolimex, đường Đà Nẵng, Ngô Quyền, Hải Phòng",latlng:[20.86109200952746,106.71158506718866]},{name:"Phạm Thị Phương",address:"Royal park, Vũ Ninh, Bắc Ninh",latlng:[21.189024096395745,106.07718895554844]}],map=L.map("map").setView([20.56119724693844,106.02778895454534],12),googleStreets=L.tileLayer("http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",{maxZoom:20,subdomains:["mt0","mt1","mt2","mt3"]}).addTo(map),i=0;i<addresses.length;i++){var address=addresses[i],marker=L.marker(address.latlng).addTo(map),title="<div><strong>"+(i+1)+"."+address.name+"</strong></div>";marker.bindTooltip(title,{permanent:!0,direction:"top"})}
+    var addresses = [
+        {
+            name: 'Trần Thị Phú',
+            address: 'KĐT OCT2 Viglacera Xuân Phương, NTL,Hà nội',
+            latlng: [21.026833428292054, 105.7406472267112],
+        },
+        {
+            name: 'Trần Văn Khuyên ',
+            address: 'La Phù Hoài Đức Hà Nội',
+            latlng: [20.978550852598097, 105.73201230849014],
+        },
+        {
+
+            name: 'Phạm Thị Ánh Tuyết',
+            address: 'Khu Đô Thị Linh Đàm Hoàng Liệt Hoàng Mai',
+            latlng: [20.965405251147594, 105.83419548568543],
+        },
+        {
+            name: 'Phạm Xuân Thủy',
+            address: '51 Quan Nhân - Nhân Chính - Thanh Xuân- Hà Nội',
+            latlng: [21.006715733359187, 105.81263269787534],
+        },
+        {
+            name: 'Nguyễn Minh Phượng',
+            address: 'Thôn Văn, Thanh Liệt, Thanh Trì, Hà Nội',
+            latlng: [20.957000787569243, 105.8153150976019]},
+        {
+            name: 'Nguyễn Minh Tuấn',
+            address: 'Lộc Vượng, TP Nam Định',
+            latlng: [20.444102934891312, 106.16451495334266]},
+        {
+            name: 'Nguyễn Thị Bích Hạnh',
+            address: 'Nhật Tảo, Đông Ngạc, Bắc Từ Liêm, Hà Nội',
+            latlng: [21.087940416928134, 105.78887486904048]},
+        {
+            name: 'Phạm Phương Loan',
+            address: 'số 38/100 Hoàng Như Tiếp, Bồ Đề, Long Biên, Hà Nội',
+            latlng: [21.04201755917944, 105.8763929555469]},
+        {
+            name: 'Đỗ Thu Hiền',
+            address: 'Ngõ 599 Phạm Văn Đồng, Bắc Từ Liêm, HN',
+            latlng: [21.05536114855431, 105.78340944020451]},
+        {
+            name: 'Vũ Thị Thu Hà',
+            address: 'Ngoại Giao Đoàn, Xuân Tảo, Bắc Từ Liêm, HN',
+            latlng: [21.066563082993873, 105.79831422782571]},
+        {
+            name: 'Nguyễn Xuân Trường',
+            address: 'Tổ Dân Phố Vĩnh Tiến, Vĩnh Trụ',
+            latlng: [20.560336889306445, 106.0346161160321]},
+        {
+            name: 'Nguyễn Thành Sơn',
+            address: 'Phường Hoàng Văn Thụ, Hoàng Mai, Hà Nội',
+            latlng: [20.984771423691665, 105.86117867920252]},
+        {
+            name: 'Nguyễn Thị Mỹ Lệ',
+            address: 'Nghĩa An, Nam Trực,Nam Định',
+            latlng: [20.379063102225498, 106.16877914086446]},
+        {
+            name: 'Lê Thị Huế',
+            address: 'Chân Lý, Lý Nhân, Hà Nam',
+            latlng: [20.599429741514758, 106.10647359378385]},
+        {
+            name: 'Dương Minh Phong',
+            address: 'Thôn 1 - Mai Xá - Thị Trấn Vĩnh Trụ - Lý Nhân - Hà Nam',
+            latlng: [20.563002502011074, 106.04046799240194]},
+        {
+            name: 'Trần Thúy Hà',
+            address: 'Vĩnh Trụ Lý nhân hà nam',
+            latlng: [20.55993102785563, 106.03229278622952]},
+        {
+            name: 'Đỗ Thị Hồng Lĩnh',
+            address: '	Bùi Bằng Đoàn, Lộc Hạ, tp.Nam Định, tỉnh Nam Định',
+            latlng: [20.448663786320207, 106.18570522670558]},
+        {
+            name: 'Trần Thị Hồng Nhung',
+            address: 'Chính Lý - Lý Nhân - Hà Nam',
+            latlng: [20.6053578217726, 106.01491297019749]},
+        {
+            name: 'Nguyễn Văn Cường',
+            address: 'nhân khang- lý nhân hà nam',
+            latlng: [20.54950332464198, 106.04488846333687]},
+        {
+            name: 'Lê Văn Trọng',
+            address: 'KĐT RESCO, Cổ Nhuế 2, Bắc Từ Liêm, Hà Nội',
+            latlng: [21.066785291756347, 105.78249867828819]},
+        {
+            name: 'Vũ Hoàng Đức',
+            address: 'KTĐC Petrolimex, đường Đà Nẵng, Ngô Quyền, Hải Phòng',
+            latlng: [20.86109200952746, 106.71158506718866]},
+        {
+            name: 'Phạm Thị Phương',
+            address: 'Royal park, Vũ Ninh, Bắc Ninh',
+            latlng: [21.189024096395745, 106.07718895554844]}
+    ]
+    var map = L.map('map').setView([20.56119724693844, 106.02778895454534], 12);
+    var googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
+        maxZoom: 20,
+        subdomains:['mt0','mt1','mt2','mt3']
+    }).addTo(map);
+    for(var i=0;i<addresses.length;i++){
+        var address = addresses[i];
+        var marker = L.marker(address.latlng).addTo(map);
+        //var title = '<div><strong>'+(i+1)+'.'+address.name+'</strong><br>'+address.address+'</div>'
+        var title = '<div><strong>'+(i+1)+'.'+address.name+'</strong></div>'
+        marker.bindTooltip(title,
+            {
+                permanent: true,
+                direction: 'top'
+            });
+    }
+
 </script>
 </body>
 </html>
